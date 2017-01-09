@@ -1,7 +1,13 @@
+/**
+ Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
+ http://aws.amazon.com/apache2.0/
+ or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+ */
 
 /**
- * WhereInTheWorld Quiz skill for Amazon Alexa allows the user to play a game
- * and challenge their knowledge of countries and cities around the world.
+ * This sample shows how to create a simple Trivia skill with a multiple choice format. The skill
+ * supports 1 player at a time, and does not support games across sessions.
  */
 
 'use strict';
@@ -33,8 +39,7 @@ var questions = [
         ]
     },
     {
-        "Japan, Indonesia, and the Philippines are all archipelago countries, meaning that they are comprised of a group of islands.
-        Which among them have the highest number of islands?": [
+        "Japan, Indonesia, and the Philippines are all archipelago countries, meaning that they are comprised of a group of islands. Which among them have the highest number of islands?": [
             "Indonesia", 
             "Philippines",
             "Japan"
@@ -69,9 +74,14 @@ exports.handler = function (event, context) {
     try {
         console.log("event.session.application.applicationId=" + event.session.application.applicationId);
 
-     if (event.session.application.applicationId !== "amzn1.ask.skill.711c74ce-451a-4efb-8136-6e5b6adc5d09") {
-         context.fail("Invalid Application ID");
-      }
+        /**
+         * Uncomment this if statement and populate with your skill's application ID to
+         * prevent someone else from configuring a skill that sends requests to this function.
+         */
+
+//     if (event.session.application.applicationId !== "amzn1.echo-sdk-ams.app.05aecccb3-1461-48fb-a008-822ddrt6b516") {
+//         context.fail("Invalid Application ID");
+//      }
 
         if (event.session.new) {
             onSessionStarted({requestId: event.request.requestId}, event.session);
