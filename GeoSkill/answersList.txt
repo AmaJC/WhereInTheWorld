@@ -12,3 +12,12 @@ Malaysia
 Vietnam
 Philippines
 China
+Manila
+Jakarta
+Bangkok
+Kuala Lumpur
+Cebu
+Hanoi
+Taipei
+Shanghai
+Tokyo
