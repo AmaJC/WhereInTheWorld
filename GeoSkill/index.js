@@ -18,13 +18,24 @@
  */
 var questions = [
     {
-        "Located in Southeast Asia, how many islands make up the Philippines?": [
-            "7,107",
-            "5,227",
-            "17,508",
-            "729",
-            "1,150",
-            "103,000"
+        "Located in Southeast Asia, approximately how many islands make up the Philippines? 700, seven thousand, or seventeen thousand?": [
+            "Seventhousand",
+            "Sevenhundred",
+            "Seventeenthousand",
+            "Seven"
+        ]
+    },
+
+    {
+        "Sometimes referred to as the Lion City, what is this Southeast Asian city-state?": [
+            "Singapore",
+            "Thailand",
+            "Indonesia",
+            "Cambodia",
+            "Malaysia",
+            "Vietnam",
+            "Philippines",
+            "China"
         ]
     },
     {
@@ -35,7 +46,9 @@ var questions = [
             "Kuala Lumpur",
             "Cebu",
             "Hanoi",
-            "Taipei"
+            "Taipei",
+            "Shanghai",
+            "Tokyo"
         ]
     },
     {
@@ -56,7 +69,19 @@ var questions = [
         ]
     },
     {
-        "Famous for being the largest religious monument in the world, where might you find the Angkor Wat temple?": [
+        "What is the only country outside of the Americas to use the peso as its national currency?": [
+            "Philippines",
+            "Brazil",
+            "Italy",
+            "Jamaica",
+            "Mongolia",
+            "Indonesia",
+            "Andorra",
+            "Madagascar"
+        ]
+    },
+    {
+        "Famous for being the largest religious monument in the world, where in the world might you find the Angkor Wat temple?": [
             "Cambodia",
             "Laos",
             "Indonesia",
@@ -64,6 +89,17 @@ var questions = [
             "Myanmar",
             "Vietnam",
             "Philippines"
+        ]
+    },
+    {
+        "Where in the world can you find a stone wall that runs for 5500 miles and can be seen from space?": [
+            "China",
+            "Mongolia",
+            "Russia",
+            "Kazakhstan",
+            "Japan",
+            "Nepal",
+            "Bhutan"
         ]
     }
 ];
@@ -79,7 +115,7 @@ exports.handler = function (event, context) {
          * prevent someone else from configuring a skill that sends requests to this function.
          */
 
-//     if (event.session.application.applicationId !== "amzn1.echo-sdk-ams.app.05aecccb3-1461-48fb-a008-822ddrt6b516") {
+//     if (event.session.application.applicationId !== "amzn1.ask.skill.36008f11-14a6-439d-9b76-13679342d30d") {
 //         context.fail("Invalid Application ID");
 //      }
 
@@ -187,14 +223,14 @@ function onSessionEnded(sessionEndedRequest, session) {
 
 // ------- Skill specific business logic -------
 
-var ANSWER_COUNT = 4;
+var ANSWER_COUNT = 1;
 var GAME_LENGTH = 5;
-var CARD_TITLE = "Trivia"; // Be sure to change this for your skill.
+var CARD_TITLE = "Trivia";
 
 function getWelcomeResponse(callback) {
     var sessionAttributes = {},
-        speechOutput = "I will ask you " + GAME_LENGTH.toString()
-            + " questions, try to get as many right as you can. Just say the number of the answer. Let's begin. ",
+        speechOutput = "Welcome to Where In The World! I will ask you " + GAME_LENGTH.toString()
+            + " questions, try to get as many right as you can. Just say your best guess. Let's start. ",
         shouldEndSession = false,
 
         gameQuestions = populateGameQuestions(),
@@ -206,10 +242,6 @@ function getWelcomeResponse(callback) {
         repromptText = "Question 1. " + spokenQuestion + " ",
 
         i, j;
-
-    for (i = 0; i < ANSWER_COUNT; i++) {
-        repromptText += (i+1).toString() + ". " + roundAnswers[i] + ". "
-    }
     speechOutput += repromptText;
     sessionAttributes = {
         "speechOutput": repromptText,
@@ -304,7 +336,7 @@ function handleAnswerRequest(intent, session, callback) {
         // If the user provided answer isn't a number > 0 and < ANSWER_COUNT,
         // return an error message to the user. Remember to guide the user into providing correct values.
         var reprompt = session.attributes.speechOutput;
-        var speechOutput = "Your answer must be a number between 1 and " + ANSWER_COUNT + ". " + reprompt;
+        var speechOutput = "Sorry, your answer is not recognized. " + reprompt;
         callback(session.attributes,
             buildSpeechletResponse(CARD_TITLE, speechOutput, reprompt, false));
     } else {
@@ -316,34 +348,31 @@ function handleAnswerRequest(intent, session, callback) {
 
         var speechOutputAnalysis = "";
 
-        if (answerSlotValid && parseInt(intent.slots.Answer.value) == correctAnswerIndex) {
+        if (answerSlotValid && intent.slots.Answer.value.toUpperCase() == correctAnswerText.toUpperCase()) {
             currentScore++;
             speechOutputAnalysis = "correct. ";
         } else {
             if (!userGaveUp) {
                 speechOutputAnalysis = "wrong. "
             }
-            speechOutputAnalysis += "The correct answer is " + correctAnswerIndex + ": " + correctAnswerText + ". ";
+            speechOutputAnalysis += "The correct answer is " + correctAnswerText + ". ";
         }
         // if currentQuestionIndex is 4, we've reached 5 questions (zero-indexed) and can exit the game session
         if (currentQuestionIndex == GAME_LENGTH - 1) {
             speechOutput = userGaveUp ? "" : "That answer is ";
             speechOutput += speechOutputAnalysis + "You got " + currentScore.toString() + " out of "
-                + GAME_LENGTH.toString() + " questions correct. Thank you for playing!";
+                + GAME_LENGTH.toString() + " questions correct. Thank you for playing Where In The World, developed by software developer JCD! Goodbye for now.";
             callback(session.attributes,
                 buildSpeechletResponse(CARD_TITLE, speechOutput, "", true));
         } else {
             currentQuestionIndex += 1;
-            var spokenQuestion = Object.keys(questions[gameQuestions[currentQuestionIndex]])[0];
+            var spokenQuestion = Object.keys(questions[gameQuestions[currentQuestionIndex]]);
             // Generate a random index for the correct answer, from 0 to 3
             correctAnswerIndex = Math.floor(Math.random() * (ANSWER_COUNT));
             var roundAnswers = populateRoundAnswers(gameQuestions, currentQuestionIndex, correctAnswerIndex),
 
                 questionIndexForSpeech = currentQuestionIndex + 1,
                 repromptText = "Question " + questionIndexForSpeech.toString() + ". " + spokenQuestion + " ";
-            for (var i = 0; i < ANSWER_COUNT; i++) {
-                repromptText += (i+1).toString() + ". " + roundAnswers[i] + ". "
-            }
             speechOutput += userGaveUp ? "" : "That answer is ";
             speechOutput += speechOutputAnalysis + "Your score is " + currentScore.toString() + ". " + repromptText;
 
@@ -388,8 +417,8 @@ function handleGetHelpRequest(intent, session, callback) {
 
     // Do not edit the help dialogue. This has been created by the Alexa team to demonstrate best practices.
 
-    var speechOutput = "I will ask you " + GAME_LENGTH + " multiple choice questions. Respond with the number of the answer. "
-        + "For example, say one, two, three, or four. To start a new game at any time, say, start game. "
+    var speechOutput = "I will ask you " + GAME_LENGTH + " multiple choice questions. Respond with your best guess. " 
+        + "To start a new game at any time, say, start game. "
         + "To repeat the last question, say, repeat. "
         + "Would you like to keep playing?",
         repromptText = "To give an answer to a question, respond with the number of the answer . "
@@ -407,8 +436,7 @@ function handleFinishSessionRequest(intent, session, callback) {
 
 function isAnswerSlotValid(intent) {
     var answerSlotFilled = intent.slots && intent.slots.Answer && intent.slots.Answer.value;
-    var answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.Answer.value));
-    return answerSlotIsInt && parseInt(intent.slots.Answer.value) < (ANSWER_COUNT + 1) && parseInt(intent.slots.Answer.value) > 0;
+    return answerSlotFilled
 }
 
 // ------- Helper functions to build responses -------
