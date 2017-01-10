@@ -92,7 +92,7 @@ var questions = [
         ]
     },
     {
-        "Where in the world can you find a stone wall that runs for 5500 miles and can be seen from space?": [
+        "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
             "Mongolia",
             "Russia",
@@ -359,7 +359,7 @@ function handleAnswerRequest(intent, session, callback) {
         }
         // if currentQuestionIndex is 4, we've reached 5 questions (zero-indexed) and can exit the game session
         if (currentQuestionIndex == GAME_LENGTH - 1) {
-            speechOutput = userGaveUp ? "" : "That answer is ";
+            speechOutput = userGaveUp ? "" : correctAnswerText;
             speechOutput += speechOutputAnalysis + "You got " + currentScore.toString() + " out of "
                 + GAME_LENGTH.toString() + " questions correct. Thank you for playing Where In The World, developed by software developer JCD! Goodbye for now.";
             callback(session.attributes,
@@ -373,7 +373,7 @@ function handleAnswerRequest(intent, session, callback) {
 
                 questionIndexForSpeech = currentQuestionIndex + 1,
                 repromptText = "Question " + questionIndexForSpeech.toString() + ". " + spokenQuestion + " ";
-            speechOutput += userGaveUp ? "" : "That answer is ";
+            speechOutput += userGaveUp ? "" : correctAnswerText;
             speechOutput += speechOutputAnalysis + "Your score is " + currentScore.toString() + ". " + repromptText;
 
             sessionAttributes = {
