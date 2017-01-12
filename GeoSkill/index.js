@@ -92,6 +92,17 @@ var questions = [
         ]
     },
     {
+        "The official language of which Southeast Asian nation is Kmher?": [
+            "Cambodia",
+            "Laos",
+            "Indonesia",
+            "Malaysia",
+            "Myanmar",
+            "Vietnam",
+            "Philippines"
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
             "Mongolia",
@@ -110,14 +121,9 @@ exports.handler = function (event, context) {
     try {
         console.log("event.session.application.applicationId=" + event.session.application.applicationId);
 
-        /**
-         * Uncomment this if statement and populate with your skill's application ID to
-         * prevent someone else from configuring a skill that sends requests to this function.
-         */
-
-//     if (event.session.application.applicationId !== "amzn1.ask.skill.36008f11-14a6-439d-9b76-13679342d30d") {
-//         context.fail("Invalid Application ID");
-//      }
+    if (event.session.application.applicationId !== "amzn1.ask.skill.36008f11-14a6-439d-9b76-13679342d30d") {
+        context.fail("Invalid Application ID");
+     }
 
         if (event.session.new) {
             onSessionStarted({requestId: event.request.requestId}, event.session);
@@ -217,8 +223,6 @@ function onIntent(intentRequest, session, callback) {
 function onSessionEnded(sessionEndedRequest, session) {
     console.log("onSessionEnded requestId=" + sessionEndedRequest.requestId
         + ", sessionId=" + session.sessionId);
-
-    // Add any cleanup logic here
 }
 
 // ------- Skill specific business logic -------
@@ -234,8 +238,6 @@ function getWelcomeResponse(callback) {
         shouldEndSession = false,
 
         gameQuestions = populateGameQuestions(),
-        correctAnswerIndex = Math.floor(Math.random() * (ANSWER_COUNT)), // Generate a random index for the correct answer, from 0 to 3
-        roundAnswers = populateRoundAnswers(gameQuestions, 0, correctAnswerIndex),
 
         currentQuestionIndex = 0,
         spokenQuestion = Object.keys(questions[gameQuestions[currentQuestionIndex]])[0],
@@ -247,7 +249,6 @@ function getWelcomeResponse(callback) {
         "speechOutput": repromptText,
         "repromptText": repromptText,
         "currentQuestionIndex": currentQuestionIndex,
-        "correctAnswerIndex": correctAnswerIndex + 1,
         "questions": gameQuestions,
         "score": 0,
         "correctAnswerText":
@@ -284,39 +285,6 @@ function populateGameQuestions() {
     return gameQuestions;
 }
 
-function populateRoundAnswers(gameQuestionIndexes, correctAnswerIndex, correctAnswerTargetLocation) {
-    // Get the answers for a given question, and place the correct answer at the spot marked by the
-    // correctAnswerTargetLocation variable. Note that you can have as many answers as you want but
-    // only ANSWER_COUNT will be selected.
-    var answers = [],
-        answersCopy = questions[gameQuestionIndexes[correctAnswerIndex]][Object.keys(questions[gameQuestionIndexes[correctAnswerIndex]])[0]],
-        temp, i;
-
-    var index = answersCopy.length;
-
-    if (index < ANSWER_COUNT){
-        throw "Not enough answers for question.";
-    }
-
-    // Shuffle the answers, excluding the first element.
-    for (var j = 1; j < answersCopy.length; j++){
-        var rand = Math.floor(Math.random() * (index - 1)) + 1;
-        index -= 1;
-
-        var temp = answersCopy[index];
-        answersCopy[index] = answersCopy[rand];
-        answersCopy[rand] = temp;
-    }
-
-    // Swap the correct answer into the target location
-    for (i = 0; i < ANSWER_COUNT; i++) {
-        answers[i] = answersCopy[i];
-    }
-    temp = answers[0];
-    answers[0] = answers[correctAnswerTargetLocation];
-    answers[correctAnswerTargetLocation] = temp;
-    return answers;
-}
 
 function handleAnswerRequest(intent, session, callback) {
     var speechOutput = "";
@@ -333,20 +301,17 @@ function handleAnswerRequest(intent, session, callback) {
         callback(sessionAttributes,
             buildSpeechletResponse(CARD_TITLE, speechOutput, speechOutput, false));
     } else if (!answerSlotValid && !userGaveUp) {
-        // If the user provided answer isn't a number > 0 and < ANSWER_COUNT,
-        // return an error message to the user. Remember to guide the user into providing correct values.
+        // If the user provided an answer that is blank or unintelligible, return an error message to the user.
         var reprompt = session.attributes.speechOutput;
         var speechOutput = "Sorry, your answer is not recognized. " + reprompt;
         callback(session.attributes,
             buildSpeechletResponse(CARD_TITLE, speechOutput, reprompt, false));
     } else {
         var gameQuestions = session.attributes.questions,
-            correctAnswerIndex = parseInt(session.attributes.correctAnswerIndex),
             currentScore = parseInt(session.attributes.score),
             currentQuestionIndex = parseInt(session.attributes.currentQuestionIndex),
-            correctAnswerText = session.attributes.correctAnswerText;
-
-        var speechOutputAnalysis = "";
+            correctAnswerText = session.attributes.correctAnswerText,
+            speechOutputAnalysis = "";
 
         if (answerSlotValid && intent.slots.Answer.value.toUpperCase() == correctAnswerText.toUpperCase()) {
             currentScore++;
@@ -357,30 +322,25 @@ function handleAnswerRequest(intent, session, callback) {
             }
             speechOutputAnalysis += "The correct answer is " + correctAnswerText + ". ";
         }
-        // if currentQuestionIndex is 4, we've reached 5 questions (zero-indexed) and can exit the game session
+        // if currentQuestionIndex is GAME_LENGTH - 1, we've finished the last question and can end game.
         if (currentQuestionIndex == GAME_LENGTH - 1) {
-            speechOutput = userGaveUp ? "" : correctAnswerText;
+            speechOutput = userGaveUp ? "" : intent.slots.Answer.value + " is ";
             speechOutput += speechOutputAnalysis + "You got " + currentScore.toString() + " out of "
-                + GAME_LENGTH.toString() + " questions correct. Thank you for playing Where In The World, developed by software developer JCD! Goodbye for now.";
+                + GAME_LENGTH.toString() + " questions correct. Thank you for playing Where In The World! Goodbye for now.";
             callback(session.attributes,
                 buildSpeechletResponse(CARD_TITLE, speechOutput, "", true));
         } else {
             currentQuestionIndex += 1;
             var spokenQuestion = Object.keys(questions[gameQuestions[currentQuestionIndex]]);
-            // Generate a random index for the correct answer, from 0 to 3
-            correctAnswerIndex = Math.floor(Math.random() * (ANSWER_COUNT));
-            var roundAnswers = populateRoundAnswers(gameQuestions, currentQuestionIndex, correctAnswerIndex),
-
-                questionIndexForSpeech = currentQuestionIndex + 1,
+            var questionIndexForSpeech = currentQuestionIndex + 1,
                 repromptText = "Question " + questionIndexForSpeech.toString() + ". " + spokenQuestion + " ";
-            speechOutput += userGaveUp ? "" : correctAnswerText;
+            speechOutput += userGaveUp ? "" : intent.slots.Answer.value + " is ";
             speechOutput += speechOutputAnalysis + "Your score is " + currentScore.toString() + ". " + repromptText;
 
             sessionAttributes = {
                 "speechOutput": repromptText,
                 "repromptText": repromptText,
                 "currentQuestionIndex": currentQuestionIndex,
-                "correctAnswerIndex": correctAnswerIndex + 1,
                 "questions": gameQuestions,
                 "score": currentScore,
                 "correctAnswerText":
@@ -417,7 +377,7 @@ function handleGetHelpRequest(intent, session, callback) {
 
     // Do not edit the help dialogue. This has been created by the Alexa team to demonstrate best practices.
 
-    var speechOutput = "I will ask you " + GAME_LENGTH + " multiple choice questions. Respond with your best guess. " 
+    var speechOutput = "I will ask you " + GAME_LENGTH + " geography related questions. Respond with your best guess. " 
         + "To start a new game at any time, say, start game. "
         + "To repeat the last question, say, repeat. "
         + "Would you like to keep playing?",
