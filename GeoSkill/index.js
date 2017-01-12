@@ -20,97 +20,57 @@ var questions = [
     {
         "Located in Southeast Asia, approximately how many islands make up the Philippines? 700, seven thousand, or seventeen thousand?": [
             "Seventhousand",
-            "Sevenhundred",
-            "Seventeenthousand",
-            "Seven"
         ]
     },
 
     {
         "Sometimes referred to as the Lion City, what is this Southeast Asian city-state?": [
             "Singapore",
-            "Thailand",
-            "Indonesia",
-            "Cambodia",
-            "Malaysia",
-            "Vietnam",
-            "Philippines",
-            "China"
         ]
     },
     {
-        "Known for being the densest city in the world, what is the capital of the Philippines?": [
+        "Known for being the densest city in the world, what is the capital city of the Philippines?": [
             "Manila",
-            "Jakarta",
-            "Bangkok",
-            "Kuala Lumpur",
-            "Cebu",
-            "Hanoi",
-            "Taipei",
-            "Shanghai",
-            "Tokyo"
         ]
     },
     {
         "Japan, Indonesia, and the Philippines are all archipelago countries, meaning that they are comprised of a group of islands. Which among them have the highest number of islands?": [
             "Indonesia", 
-            "Philippines",
-            "Japan"
         ]
     },
     {
         "In what Southeast Asian nation might you hear the Tagalog language?": [
             "Philippines",
-            "Thailand",
-            "Indonesia",
-            "Cambodia",
-            "Malaysia",
-            "Vietnam"
         ]
     },
     {
         "What is the only country outside of the Americas to use the peso as its national currency?": [
             "Philippines",
-            "Brazil",
-            "Italy",
-            "Jamaica",
-            "Mongolia",
-            "Indonesia",
-            "Andorra",
-            "Madagascar"
         ]
     },
     {
         "Famous for being the largest religious monument in the world, where in the world might you find the Angkor Wat temple?": [
             "Cambodia",
-            "Laos",
-            "Indonesia",
-            "Malaysia",
-            "Myanmar",
-            "Vietnam",
-            "Philippines"
         ]
     },
     {
         "The official language of which Southeast Asian nation is Kmher?": [
             "Cambodia",
-            "Laos",
-            "Indonesia",
-            "Malaysia",
-            "Myanmar",
-            "Vietnam",
-            "Philippines"
+        ]
+    },
+    {
+        "Indochina is comprised of Myanmar, Vietnam, Laos, Thailand, and Cambodia. Which among these has never been colonized by a European nation?": [
+            "Thailand",
+        ]
+    },
+    {
+        "The Petronas Towers were the tallest skyscrapers in the world from 1998 to 2004. Where in the world can they be found?": [
+            ["Thailand", "KualaLumpur"],
         ]
     },
     {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
-            "Mongolia",
-            "Russia",
-            "Kazakhstan",
-            "Japan",
-            "Nepal",
-            "Bhutan"
         ]
     }
 ];
