@@ -64,8 +64,23 @@ var questions = [
         ]
     },
     {
-        "The Petronas Towers were the tallest skyscrapers in the world from 1998 to 2004. Where in the world can they be found?": [
-            ["Thailand", "KualaLumpur"],
+        "The Petronas Towers were the tallest skyscrapers in the world from 1998 to 2004. In what country can they be found?": [
+            "Thailand",
+        ]
+    },
+    {
+        "Home to 45 out of the world's 50 busiest train stations, where in the world is the Land of the Rising Sun?": [
+            "Japan",
+        ]
+    },
+    {
+        "Which of the following countries is the most populous? Russia, Brazil, or Mexico?": [
+            "Brazil",
+        ]
+    },
+    {
+        "The Organization of Petroleum Exporting Countries, known as OPEC, is comprised of 13 nations. Which of these produces the most barrels of oil per year?": [
+            "Saudi Arabia",
         ]
     },
     {
@@ -116,8 +131,6 @@ exports.handler = function (event, context) {
 function onSessionStarted(sessionStartedRequest, session) {
     console.log("onSessionStarted requestId=" + sessionStartedRequest.requestId
         + ", sessionId=" + session.sessionId);
-
-    // add any session init logic here
 }
 
 /**
