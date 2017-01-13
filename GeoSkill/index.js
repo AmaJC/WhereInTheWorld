@@ -202,7 +202,7 @@ function onSessionEnded(sessionEndedRequest, session) {
 
 var ANSWER_COUNT = 1;
 var GAME_LENGTH = 5;
-var CARD_TITLE = "Trivia";
+var CARD_TITLE = "WhereInTheWorld";
 
 function getWelcomeResponse(callback) {
     var sessionAttributes = {},
@@ -214,9 +214,8 @@ function getWelcomeResponse(callback) {
 
         currentQuestionIndex = 0,
         spokenQuestion = Object.keys(questions[gameQuestions[currentQuestionIndex]])[0],
-        repromptText = "Question 1. " + spokenQuestion + " ",
+        repromptText = "Question 1. " + spokenQuestion + " ";
 
-        i, j;
     speechOutput += repromptText;
     sessionAttributes = {
         "speechOutput": repromptText,
@@ -244,7 +243,7 @@ function populateGameQuestions() {
         indexList.push(i);
     }
 
-    // Pick GAME_LENGTH random questions from the list to ask the user, make sure there are no repeats.
+    // Pick GAME_LENGTH random questions from the list to ask the user, no repeats.
     for (var j = 0; j < GAME_LENGTH; j++){
         var rand = Math.floor(Math.random() * index);
         index -= 1;
@@ -364,7 +363,7 @@ function handleGetHelpRequest(intent, session, callback) {
 function handleFinishSessionRequest(intent, session, callback) {
     // End the session with a "Good bye!" if the user wants to quit the game
     callback(session.attributes,
-        buildSpeechletResponseWithoutCard("Good bye!", "", true));
+        buildSpeechletResponseWithoutCard("Good bye for now!", "", true));
 }
 
 function isAnswerSlotValid(intent) {
