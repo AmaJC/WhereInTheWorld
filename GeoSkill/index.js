@@ -54,7 +54,7 @@ var questions = [
         ]
     },
     {
-        "The official language of which Southeast Asian nation is Kmher?": [
+        "The official language of which Southeast Asian nation is Khmer?": [
             "Cambodia",
         ]
     },
