@@ -41,7 +41,7 @@ Resources I used to develop WhereInTheWorld:
 - [Amazon Web Services - Lambda (Serverless computing)] (https://aws.amazon.com/lambda/)
 - [Using the Alexa Skills Kit Samples (Node.js)](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/using-the-alexa-skills-kit-samples)
 - [Using AWS Lambda and the Alexa Skill](https://developer.amazon.com/appsandservices/solutions/alexa/alexa-skills-kit/docs/developing-an-alexa-skill-as-a-lambda-function)
-And of course, Google!
+- And of course, Google!
 
 ### I've found a bug in the game or in one of the questions. How can I get it fixed?
 
