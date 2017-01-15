@@ -84,6 +84,11 @@ var questions = [
         ]
     },
     {
+        "The BP oil spill in 2010 was the largest marine oil spill in history. In which body of water did the spill occur?": [
+            "Gulf of Mexico",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
