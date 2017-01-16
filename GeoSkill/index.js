@@ -89,6 +89,26 @@ var questions = [
         ]
     },
     {
+        "Where in the world can you find the capital city of Podgorica?": [
+            "Montenegro",
+        ]
+    },
+    {
+        "Where in the world can you find the capital city of Tirana?": [
+            "Albania",
+        ]
+    },
+    {
+        "Where in the world can you find the capital city of London?": [
+            "United Kingdom",
+        ]
+    },
+    {
+        "Known for being the oldest pub in Ireland, The Brazen Head, can be found in the capital city. What is Ireland's capital city?": [
+            "Dublin",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
