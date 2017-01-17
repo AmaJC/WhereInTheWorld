@@ -97,8 +97,6 @@ Jamaica
 Kazakhstan
 Kenya
 Kiribati
-North Korea
-South Korea
 Kosovo
 Kuwait
 Kyrgyzstan
@@ -141,6 +139,7 @@ Nicaragua
 Niger
 Nigeria
 Norway
+North Korea
 Oman
 Pakistan
 Palau
