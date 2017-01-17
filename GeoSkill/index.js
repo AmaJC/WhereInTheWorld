@@ -109,6 +109,11 @@ var questions = [
         ]
     },
     {
+        "Which country, landlocked between Belgium, France, and Germany, had the highest nominal GDP per capita in 2016?": [
+            "Luxembourg",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
