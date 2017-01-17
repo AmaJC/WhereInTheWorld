@@ -114,6 +114,21 @@ var questions = [
         ]
     },
     {
+        "Which European country, known for its waffles and chocolate, is where the gourmet chocolate company Godiva was founded?": [
+            "Belgium",
+        ]
+    },
+    {
+        "Which of the following cities can be found in the San Francisco Bay Area? Seattle, Monterey, Berkeley, or Sacramento?": [
+            "Berkeley",
+        ]
+    },
+    {
+        "UC Berkeley, ranked among some of the most prestigious universities, can be found in which west coast state?": [
+            "California",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]

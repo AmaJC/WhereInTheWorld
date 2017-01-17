@@ -10,6 +10,7 @@ Aruba
 Australia
 Austria
 Azerbaijan
+Berkeley
 Bahamas
 Bahrain
 Bangladesh
@@ -29,6 +30,7 @@ Burkina Faso
 Burma
 Burundi
 Bangkok
+California
 Cambodia
 Cameroon
 Canada
