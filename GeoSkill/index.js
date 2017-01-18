@@ -129,6 +129,21 @@ var questions = [
         ]
     },
     {
+        "The eighth largest cave in the world is located in which small landlocked country in Eastern Europe?": [
+            "Moldova",
+        ]
+    },
+    {
+        "Known for its neutrality during World War two, which European country has not fought in a war since the year 1815?": [
+            "Switzerland",
+        ]
+    },
+    {
+        "In which African country might you hear the Portuguese language while roaming the streets of its capital city Luanda?": [
+            "Angola",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
