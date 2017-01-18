@@ -65,7 +65,7 @@ var questions = [
     },
     {
         "The Petronas Towers were the tallest skyscrapers in the world from 1998 to 2004. In what country can they be found?": [
-            "Thailand",
+            "Malaysia",
         ]
     },
     {
@@ -104,6 +104,46 @@ var questions = [
         ]
     },
     {
+        "Where in the world can you find the capital city of Stockholm?": [
+            "Sweden",
+        ]
+    },
+    {
+        "Where in the world can you find the capital city of Wellington?": [
+            "New Zealand",
+        ]
+    },
+    {
+        "Where in the world can you find the capital city of Vienna?": [
+            "Austria",
+        ]
+    },
+    {
+        "Which country in Oceania is known for having more sheep than people?": [
+            "New Zealand",
+        ]
+    },
+    {
+        "Where in the world can you find the capital city of Bratislava?": [
+            "Slovakia",
+        ]
+    },
+    {
+        "Where in the world can you find the capital city of Buenos Aires?": [
+            "Argentina",
+        ]
+    },
+    {
+        "Where in the Middle East can you find the capital city of Doha?": [
+            "Qatar",
+        ]
+    },
+    {
+        "Where in the Middle East can you find the capital city of Abu Dhabi?": [
+            "United Arab Emirates",
+        ]
+    },
+    {
         "Known for being the oldest pub in Ireland, The Brazen Head, can be found in the capital city. What is Ireland's capital city?": [
             "Dublin",
         ]
@@ -134,6 +174,11 @@ var questions = [
         ]
     },
     {
+        "Which country has a red maple leef in the center of its national flag?": [
+            "Canada",
+        ]
+    },
+    {
         "Known for its neutrality during World War two, which European country has not fought in a war since the year 1815?": [
             "Switzerland",
         ]
@@ -146,6 +191,26 @@ var questions = [
     {
         "In which African country is the Serengeti National Park located?": [
             "Tanzania",
+        ]
+    },
+    {
+        "In which Mediterranean country can you find the Acropolis and the Parthenon?": [
+            "Greece",
+        ]
+    },
+    {
+        "Where in the world might you be if you are in Damascus, also known as the Jasmine City?": [
+            "Syria",
+        ]
+    },
+    {
+        "With over 5 million Hebrew speakers, which country's capital is Jerusalem?": [
+            "Israel",
+        ]
+    },
+    {
+        "The Nile river predominantly flows through which northeast African country?": [
+            "Egypt",
         ]
     },
     {
