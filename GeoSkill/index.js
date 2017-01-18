@@ -164,6 +164,16 @@ var questions = [
         ]
     },
     {
+        "In which country might you find the cities of Sao Paulo, Salvador, and Rio de Janeiro?": [
+            "Brazil",
+        ]
+    },
+    {
+        "In which country might you find the islands of Sumatra, Java, and Sulawesi?": [
+            "Indonesia",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
