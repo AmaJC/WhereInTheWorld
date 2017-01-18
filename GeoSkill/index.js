@@ -144,6 +144,26 @@ var questions = [
         ]
     },
     {
+        "In which African country is the Serengeti National Park located?": [
+            "Tanzania",
+        ]
+    },
+    {
+        "Which of the following African countries border the Mediterranean Sea? Kenya, Zimbabwe, or Egypt?": [
+            "Egypt",
+        ]
+    },
+    {
+        "Where in the world is an island country found in the Easy Mediterranean Sea, whose capital is Nicosia?": [
+            "Cyprus",
+        ]
+    },
+    {
+        "Named a UNESCO World Heritage Site in 1983, where can you find the Machu Picchu?": [
+            "Peru",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
