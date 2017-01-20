@@ -239,6 +239,16 @@ var questions = [
         ]
     },
     {
+        "Constantinople, which is now known as Istanbul, was once a capital city of the Roman Empire. Where in the world is Istanbul found?": [
+            "Turkey",
+        ]
+    },
+    {
+        "The Iberian Peninsula is comprised mainly of two southwest European countries, one being Spain. What is the other country?": [
+            "Portugal",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
