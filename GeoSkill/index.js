@@ -264,6 +264,16 @@ var questions = [
         ]
     },
     {
+        "Which US state shares the same name as the US capital?": [
+            "Washington",
+        ]
+    },
+    {
+        "Home to almost 2 million people, what is the capital of Poland?": [
+            "Warsaw",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
