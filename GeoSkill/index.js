@@ -249,6 +249,21 @@ var questions = [
         ]
     },
     {
+        "Taipei 101, or the Taipei World Financial Center, was the tallest skyscraper in the world from 2004 to 2009. In what country is it located?": [
+            "Taiwan",
+        ]
+    },
+    {
+        "Standing at 828 meters, the Burj Khalifa is the world's tallest skyscraper. In which country is it located?": [
+            "United Arab Emirates",
+        ]
+    },
+    {
+        "The CN Tower is a communications and observations tower in downtown Toronto, Ontario, in which North American country?": [
+            "Canada",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
