@@ -279,6 +279,11 @@ var questions = [
         ]
     },
     {
+        "Home to San Antonio and Houston, which US state is known as the Lone Star State?": [
+            "Texas",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
