@@ -284,6 +284,11 @@ var questions = [
         ]
     },
     {
+        "What island nation south of India was formerly known as Ceylon?": [
+            "Sri Lanka",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
