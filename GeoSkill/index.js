@@ -219,7 +219,7 @@ var questions = [
         ]
     },
     {
-        "Where in the world is an island country found in the Easy Mediterranean Sea, whose capital is Nicosia?": [
+        "Where in the world is an island country found in the East Mediterranean Sea, whose capital is Nicosia?": [
             "Cyprus",
         ]
     },
