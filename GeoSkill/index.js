@@ -219,6 +219,11 @@ var questions = [
         ]
     },
     {
+        "The currency used in Egypt is called the Egyptian Pound. What is the capital city of Egypt?": [
+            "Cairo",
+        ]
+    },
+    {
         "Where in the world is an island country found in the East Mediterranean Sea, whose capital is Nicosia?": [
             "Cyprus",
         ]
@@ -296,6 +301,21 @@ var questions = [
     {
         "Which country became the largest country in Africa by land area in 2011, when South Sudan separated from Sudan?": [
             "Algeria",
+        ]
+    },
+    {
+        "Where in the world can you find Vancouver, Montreal, and Toronto?": [
+            "Canada",
+        ]
+    },
+    // {
+    //     "?": [
+    //         "",
+    //     ]
+    // },
+    {
+        "Which tiny country situated between France and Spain is home to the highest capital in Europe?": [
+            "Andorra",
         ]
     },
     {
