@@ -289,6 +289,16 @@ var questions = [
         ]
     },
     {
+        "The capital city Kabul can be found in which landlocked South Asian country?": [
+            "Afghanistan",
+        ]
+    },
+    {
+        "Which country became the largest country in Africa by land area in 2011, when South Sudan separated from Sudan?": [
+            "Algeria",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
