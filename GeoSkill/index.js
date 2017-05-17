@@ -22,7 +22,6 @@ var questions = [
             "Seventhousand",
         ]
     },
-
     {
         "Sometimes referred to as the Lion City, what is this Southeast Asian city-state?": [
             "Singapore",
@@ -111,11 +110,6 @@ var questions = [
     {
         "Where in the world can you find the capital city of Wellington?": [
             "New Zealand",
-        ]
-    },
-    {
-        "Where in the world can you find the capital city of Vienna?": [
-            "Austria",
         ]
     },
     {
@@ -308,14 +302,24 @@ var questions = [
             "Canada",
         ]
     },
-    // {
-    //     "?": [
-    //         "",
-    //     ]
-    // },
+    {
+        "The volcanic mountain, Mount Fuji, is comprised of three separate volcanoes stacked on top of one another. In which island nation can Mount Fuji be found?": [
+            "Japan",
+        ]
+    },
     {
         "Which tiny country situated between France and Spain is home to the highest capital in Europe?": [
             "Andorra",
+        ]
+    },
+    {
+        "Mount Everest, the highest mountain in the world, towers at almost nine thousand meters above sea level. In which landlocked country can Mount Everest be found?": [
+            "Nepal",
+        ]
+    },
+    {
+        "Within the capital city Vienna, wine framers produce two and a half million liters of wine annually. Where in the world is Vienna?": [
+            "Austria",
         ]
     },
     {
