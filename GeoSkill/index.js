@@ -328,6 +328,11 @@ var questions = [
         ]
     },
     {
+        "Where in Southern Africa might you stumble upon the capital city, Windhoek?": [
+            "Namibia",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
