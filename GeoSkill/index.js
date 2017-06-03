@@ -338,6 +338,11 @@ var questions = [
         ]
     },
     {
+        "Where in the world might you find the cities Munich, Hamburg, and Frankfurt?": [
+            "Germany",
+        ]
+    },
+    {
         "Where in the world can you find the world's longest wall, which runs for 5500 miles and can be seen from space?": [
             "China",
         ]
