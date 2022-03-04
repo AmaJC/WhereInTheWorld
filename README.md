@@ -36,9 +36,9 @@ To repeat the last question, say 'repeat'.
 
 ### What resources can I use to develop an Amazon skill of my own?
 Resources I used to develop WhereInTheWorld:
-- [Amazon Alexa Skills Kit] (https://developer.amazon.com/edw/home.html#/)
+- [Amazon Alexa Skills Kit](https://developer.amazon.com/edw/home.html#/)
 - [Alexa Skills Kit Introduction](https://developer.amazon.com/appsandservices/solutions/alexa/alexa-skills-kit/getting-started-guide)
-- [Amazon Web Services - Lambda (Serverless computing)] (https://aws.amazon.com/lambda/)
+- [Amazon Web Services - Lambda (Serverless computing)](https://aws.amazon.com/lambda/)
 - [Using the Alexa Skills Kit Samples (Node.js)](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/using-the-alexa-skills-kit-samples)
 - [Using AWS Lambda and the Alexa Skill](https://developer.amazon.com/appsandservices/solutions/alexa/alexa-skills-kit/docs/developing-an-alexa-skill-as-a-lambda-function)
 - And of course, Google!
